@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Break The Ice Sports</title>
+    <style>
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 80px;
+}
+
+/* Scrollable Table Container */
+.table-container {
+    max-height: 350px; /* Adjust as needed */
+    overflow-y: auto;
+    border: 1px solid #ddd;
+    padding: 10px;
+    margin-top: 20px;
+}
+
+/* Table Styling */
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+/* Style for Each Cell */
+td {
+    width: 50%; /* Two members per row */
+    padding: 20px;
+    text-align: center;
+    vertical-align: top;
+    border: 1px solid #ddd;
+}
+
+/* Image Styling */
+td img {
+    width: 100px; /* Adjust size */
+    height: auto;
+    border-radius: 50%; /* Circular images */
+    margin-bottom: 10px;
+}
+
+/* Name Styling */
+h3 {
+    margin: 5px 0;
+    font-size: 18px;
+}
+
+/* Title Styling */
+p strong {
+    font-size: 16px;
+    color: #5BBEE7; /* Highlighted text */
+}
+
+/* Description Styling */
+p {
+    font-size: 14px;
+    color: #333;
+}
+
+        /* Navigation Bar */
+        .navbar {
+            background-color: #5BBEE7;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 5px 20px;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            left: 0;
+            z-index: 1000;
+        }
+        .navbar img {
+            height: 40px;
+        }
+        .nav-links {
+            display: flex;
+            gap: 15px;
+        }
+        .navbar a {
+            color: white;
+            text-align: center;
+            padding: 8px 12px;
+            text-decoration: none;
+            font-size: 14px;
+        }
+        .navbar a:hover {
+            background-color: #ddd;
+            color: black;
+        }
+
+        /* General Styling */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #ffffff;
+            color: #000000;
+            margin: 0;
+            padding-top: 50px;
+        }
+
+        /* Header Section */
+        header {
+            background: url('Backdrop.jpg') no-repeat center center;
+            background-size: cover;
+            min-height: 500px;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            text-align: center;
+            position: relative;
+        }
+        header::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+        }
+        header h1 {
+            position: relative;
+            z-index: 1;
+            font-size: 3rem;
+        }
+
+        /* Donate Button */
+        .donate-button {
+            position: fixed;
+            top: 80px;
+            right: 10px;
+            background-color: #5BBEE7;
+            color: white;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+
+        /* Section Layout */
+        .section {
+            padding: 10px;
+            max-width: 1000px;
+            margin: 0 auto;
+	    scroll-margin-top: 80px;
+        }
+        h2 {
+            font-size: 2rem;
+        }
+
+        /* Missions Section */
+        .missions-container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 60px;
+        }
+        .missions-text {
+            flex: 1.5;
+            font-size: 18px;
+            line-height: 1.8;
+        }
+        .missions-image {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+        }
+        .missions-image img {
+            width: 100%;
+            max-width: 450px;
+            height: auto;
+            display: block;
+            border-radius: 8px;
+        }
+
+        /* Why Section */
+        .why-container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 40px;
+        }
+        .why-text {
+            flex: 1.5;
+            font-size: 18px;
+            line-height: 1.8;
+        }
+        .why-image {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+        }
+        .why-image img {
+            width: 100%;
+            max-width: 400px;
+            height: auto;
+            border-radius: 8px;
+	    align: right;
+        }
+
+   .sponsorship-tiers {
+        display: flex;
+        gap: 20px;
+        overflow-x: auto;
+        padding: 20px 0;
+    }
+
+    .tier {
+        min-width: 200px;
+        padding: 20px;
+        border: 1px solid #5BBEE7;
+        text-align: center;
+        font-weight: bold;
+        background-color: #f9f9f9;
+        border-radius: 8px;
+    }
+        /* Contact Form */
+        .contact-form input, .contact-form textarea {
+            display: block;
+            width: 100%;
+            margin-bottom: 10px;
+            padding: 10px;
+            font-size: 16px;
+        }
+        .contact-form button {
+            background-color: #5BBEE7;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+            border-radius: 5px;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .missions-container, .why-container {
+                flex-direction: column;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation Bar -->
+    <div class="navbar">
+        <a href="#"><img src="logo.png" alt="Break The Ice Sports Logo"></a>
+        <div class="nav-links">
+            <a href="#">Home</a>
+            <a href="#missions">Missions</a>
+            <a href="#executive-team">About Us</a>
+            <a href="#subscriptions">Subscriptions</a>
+        </div>
+    </div>
+
+    <!-- Header -->
+    <header>
+        <h1>Break The Ice Sports</h1>
+    </header>
+    <a href="#donate" class="donate-button">Donate</a>
+
+    <!-- Missions Section -->
+    <div class="section" id="missions">
+        <h2>Missions Page</h2>
+        <div class="missions-container">
+            <div class="missions-text">
+                <p>Our mission is to raise funds to purchase high-quality soccer balls and essential first aid kits for children in São Paulo. Many kids in underserved communities lack access to proper sports equipment and basic medical supplies, limiting their ability to engage in healthy and safe recreational activities. By providing these resources, we aim to create a positive and secure environment where children can freely enjoy the game of soccer, build meaningful friendships, and develop essential life skills such as teamwork, discipline, and resilience. Through this initiative, we hope to inspire young athletes, promote physical well-being, and contribute to the overall development of the next generation. For this task we need your support!</p>
+            </div>
+            <div class="missions-image">
+                <img src="misson-image.jpg" alt="Children playing soccer">
+            </div>
+        </div>
+    </div>
+    <div class="section">
+
+    <!-- Why Section -->
+    <div class="section">
+        <h2>Why</h2>
+        <div class="why-container">
+            <div class="why-text">
+                <p>We believe every child should have the chance to play, grow, and succeed in an atmosphere that is secure and encouraging. Children in São Paulo neighborhoods often lack access to sports equipment and medical supplies, keeping them from participating in healthy living activities. Soccer is more than just a game; it's an effective way to teach discipline, teamwork, and resilience. It helps kids gain confidence, improve their social skills, and keep active. However, without the necessary resources, many youngsters are unable to completely enjoy or profit from the sport. That's why we're dedicated to offering high-quality soccer balls and first aid kits so they may play safely and confidently. By providing children with these needs, we foster a safer environment for them to learn and grow into impactful members of society.</p>
+            </div>
+            <div class="why-image">
+                <img src="why.jpg" alt="Kids playing soccer">
+            </div>
+        </div>
+    </div>
+ <h2 id="executive-team">Meet Our Executive Team</h2>
+    
+    <div class="table-container">
+        <table>
+            <tbody>
+                <tr>
+                    <td>
+                        <img src="default.png" alt="Executive 1">
+                        <h3>Quinn Croft</h3>
+                        <p><strong>CEO</strong></p>
+                    </td>
+                    <td>
+                        <img src="default.png" alt="Executive 2">
+                        <h3>Zach Zarolia</h3>
+                        <p><strong>CFO</strong></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <img src="default.png" alt="Executive 3">
+                        <h3>Aariz</h3>
+                        <p><strong>Marketing Director</strong></p>
+                    </td>
+                    <td>
+                        <img src="default.png" alt="Executive 4">
+                        <h3>Sanchit Khope</h3>
+                        <p><strong>Technology Director</strong></p>
+                    </td>
+                </tr>
+ 		<tr>
+                    <td>
+                        <img src="default.png" alt="Executive 3">
+                        <h3>Dhruv Chopra</h3>
+                        <p><strong>Assistant of the CTO</strong></p>
+                    </td>
+                    <td>
+                        <img src="default.png" alt="Executive 4">
+                        <h3>Lojayn</h3>
+                        <p><strong>Marketing Director</strong></p>
+                    </td>
+		    <tr>
+		</tr>
+		<tr>
+                    <td>
+                        <img src="default.png" alt="Executive 3">
+                        <h3>Mikayla Simoenoe</h3>
+                        <p><strong>Logistics Manager</strong></p>
+                    </td>
+		</tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+    <!-- Sponsorship Section -->
+   <div class="section" id="subscriptions">
+    <h2>Sponsorship Page</h2>
+    <p>Different sponsorship tiers and their respective perks.</p>
+    <div class="sponsorship-tiers">
+        <div class="tier">Tier 1<br>Basic recognition on our website<br>$20</div>
+        <div class="tier">Tier 2<br>Social media shoutout<br>$100</div>
+        <div class="tier">Tier 3<br>Logo on event banners<br>$250</div>
+        <div class="tier">Tier 4<br>Logo on team jerseys<br>$300</div>
+        <div class="tier">Tier 5<br>Featured sponsor on website<br>$500</div>
+        <div class="tier">Tier 6<br>All benefits + special thank you plaque<br>$750</div>
+    </div>
+</div>
+    <!-- Contact Section -->
+    <div class="section">
+        <h2>Contact Us</h2>
+        <p>Email: breaktheicesports@gmail.com</p>
+        <p>Phone: 437-777-9224</p>
+        <form class="contact-form">
+            <input type="text" placeholder="First Name" required>
+            <input type="text" placeholder="Last Name" required>
+            <input type="email" placeholder="Email Address" required>
+            <textarea placeholder="How can we help you? Comments/Questions"></textarea>
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+
+</body>
+</html>
